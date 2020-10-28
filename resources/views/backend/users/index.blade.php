@@ -55,46 +55,20 @@
                                 </tr>
                                 </thead>
 
-
                                 <tbody>
+                                @foreach($users as $user)
                                 <tr>
-                                    <td>1</td>
-                                    <td>System Architect</td>
-                                    <td>Edinburgh</td>
-                                    <td>61</td>
-                                    <td>2011/04/25</td>
+                                    <td>{{ $user->id }}</td>
+                                    <td>{{ $user->name }}</td>
+                                    <td>{{ $user->role }}</td>
+                                    <td>{{ $user->email }}</td>
+                                    <td>{{ $user->phone }}</td>
                                 </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Accountant</td>
-                                    <td>Tokyo</td>
-                                    <td>63</td>
-                                    <td>2011/07/25</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Junior Technical Author</td>
-                                    <td>San Francisco</td>
-                                    <td>66</td>
-                                    <td>2009/01/12</td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>Senior Javascript Developer</td>
-                                    <td>Edinburgh</td>
-                                    <td>22</td>
-                                    <td>2012/03/29</td>
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td>Accountant</td>
-                                    <td>Tokyo</td>
-                                    <td>33</td>
-                                    <td>2008/11/28</td>
-                                </tr>
+                                @endforeach
 
                                 </tbody>
                             </table>
+{{--                            <div>{!! $users->links() !!}</div>--}}
                         </div>
                     </div>
                 </div>

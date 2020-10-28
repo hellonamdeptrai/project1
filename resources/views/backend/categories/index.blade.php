@@ -4,7 +4,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">Danh sách sản phẩm</h1>
+                    <h1 class="m-0 text-dark">Quản lý danh mục</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -27,32 +27,24 @@
                 <thead>
                 <tr>
                     <th>id</th>
-                    <th>Tên sản phẩm</th>
-                    <th>Trạng thái</th>
+                    <th>Tên danh mục</th>
+                    <th>Độ sâu</th>
                     <th>Thời gian cập nhật</th>
-                    <th>Giá bán</th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($products as $product)
-                    <tr>
-                        <th scope="row">{{ $product->id }}</th>
-                        <td>{{ $product->name }}</td>
-                        <td>
-                            @if($product->status == 1)
-                                Hoạt động
-                            @else
-                                Đã khóa
-                            @endif
-                        </td>
-                        <td>{{ $product->updated_at }}</td>
-                        <td>{{ $product->sale_price }}đ</td>
-                    </tr>
+                @foreach($categories as $category)
+                <tr>
+                    <th scope="row">{{ $category->id }}</th>
+                    <td>{{ $category->name }}</td>
+                    <td>{{ $category->depth }}</td>
+                    <td>{{ $category->updated_at }}</td>
+                </tr>
                 @endforeach
                 </tbody>
             </table>
 
         </div>
     </div>
-    {!! $products->links() !!}
+    {!! $categories->links() !!}
 @endsection

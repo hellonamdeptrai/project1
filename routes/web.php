@@ -27,6 +27,11 @@ Route::prefix('dashboard')->group(function () {
         Route::get('/', [\App\Http\Controllers\backend\UserController::class,'index'])->name('backend.user.index');
         Route::get('/create', [\App\Http\Controllers\backend\UserController::class,'create'])->name('backend.user.create');
     });
+    // Quản lý danh mục
+    Route::prefix('categories')->group(function(){
+        Route::get('/', [\App\Http\Controllers\backend\CategoryController::class,'index'])->name('backend.categories.index');
+        Route::get('/create', [\App\Http\Controllers\backend\CategoryController::class,'create'])->name('backend.categories.create');
+    });
 });
 
 // Trang bán hàng
