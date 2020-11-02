@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,11 +16,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::paginate(10);
-
-        return view('backend.products.index')->with([
-            'products' => $products
-        ]);
+        //
     }
 
     /**
@@ -29,7 +26,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('backend.products.create');
+        //
     }
 
     /**
@@ -88,11 +85,12 @@ class ProductController extends Controller
         //
     }
 
-    public function showImages($id)
+    public function showProducts($order_id)
     {
-        $images = Product::find($id)->images;
-        foreach ($images as $image){
-            echo $image->name."\n";
+        $products = Order::find($order_id)->products;
+        // dd($products);
+        foreach ($products as $product) {
+            echo $product->name."\n";
         }
     }
 }

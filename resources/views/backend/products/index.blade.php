@@ -51,8 +51,8 @@
                 @endforeach
                 </tbody>
             </table>
-
+            {!! $products->links() !!}
         </div>
     </div>
-    {!! $products->links() !!}
+
 @endsection
